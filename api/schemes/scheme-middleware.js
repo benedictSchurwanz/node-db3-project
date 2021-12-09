@@ -29,14 +29,17 @@ const validateScheme = async (req, res, next) => {
   // get the stuff from the request, probably not the params. the request body. 
   // what are the fields?
   // scheme_id, scheme_name
-  const { scheme_name } = req.body;
+  
+  // const name = req.body.scheme_name;
+  
   // if missing, empty string, or _not a string..._
   // how do I tell if something is a string? 
-  if (scheme) {
-    next()
-  } else {
-    next({ status: 400, message: `invalid scheme_name` })
-  }
+  
+  // if () {
+  //   next()
+  // } else {
+  //   next({ status: 400, message: `invalid scheme_name` })
+  // }
 }
 
 /*
