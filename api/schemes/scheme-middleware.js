@@ -10,11 +10,10 @@ const Scheme = require('../schemes/scheme-model')
 */
 const checkSchemeId = async (req, res, next) => {
   const scheme = await Scheme.findById(req.params.id)
-  
   if (scheme) {
     next()
   } else {
-    next({ status: 404, message: `scheme with scheme_id ${req.params.id} not found`})
+    next({ status: 404, message: `scheme with scheme_id ${req.params.id} not found` })
   }
 }
 
@@ -26,8 +25,18 @@ const checkSchemeId = async (req, res, next) => {
     "message": "invalid scheme_name"
   }
 */
-const validateScheme = (req, res, next) => {
-
+const validateScheme = async (req, res, next) => {
+  // get the stuff from the request, probably not the params. the request body. 
+  // what are the fields?
+  // scheme_id, scheme_name
+  const { scheme_name } = req.body;
+  // if missing, empty string, or _not a string..._
+  // how do I tell if something is a string? 
+  if (scheme) {
+    next()
+  } else {
+    next({ status: 400, message: `invalid scheme_name` })
+  }
 }
 
 /*
